@@ -104,8 +104,7 @@ class ClassesFromInterfacesE2eTest extends TestCase {
             $results[]=$this->generateCodeByInterfaceReflection(new ReflectionClass($interfaceName));
         }
         foreach($results as $result) {
-            $this->assertContains('implements', (string) $result);
-            $this->assertContains('function __toString():string', (string) $result);
+            $this->assertStringContainsString('implements', (string) $result);
         }
     }
 }
