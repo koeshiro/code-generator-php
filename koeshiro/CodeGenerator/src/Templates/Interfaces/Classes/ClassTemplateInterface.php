@@ -16,19 +16,19 @@ interface ClassTemplateInterface extends \Stringable {
 
     public function setName(string $Name): self;
 
-    public function getName();
+    public function getName(): string;
 
     public function setModification(string $Modification): self;
 
-    public function getModification();
+    public function getModification(): string;
 
     public function setExtends(string $Extends): self;
 
-    public function getExtends();
+    public function getExtends(): string;
 
     public function addImplementInterface(string $Implement): self;
 
-    public function getImplementsInterface();
+    public function getImplementsInterface(): array;
 
     public function addMethod(MethodTemplateInterface $Method): self;
 
@@ -41,11 +41,11 @@ interface ClassTemplateInterface extends \Stringable {
      */
     public function useMethod(string $Name, array $Arguments): UseMethodTemplateInterface;
 
-    public function getMethods();
+    public function getMethods(): array;
 
-    public function addProperty(PropertyTemplateInterface $property);
+    public function addProperty(PropertyTemplateInterface $property): self;
 
-    public function getProperty(string $Name);
+    public function getProperty(string $Name): PropertyTemplateInterface;
 
-    public function getProperties();
+    public function getProperties(): array;
 }

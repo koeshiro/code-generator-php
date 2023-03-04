@@ -17,30 +17,30 @@ interface MethodTemplateInterface extends \Stringable
 
     public function setName(string $Name): self;
 
-    public function getName();
+    public function getName(): string;
 
 
     public function addArgument(ArgumentTemplateInterface $Argument): self;
 
-    public function getArgument(string $Name);
+    public function getArgument(string $Name): ArgumentTemplateInterface;
 
-    public function getArguments();
+    public function getArguments(): array;
 
 
     public function setBlock(BlockTemplateInterface $Block): self;
 
-    public function getBlock();
+    public function getBlock(): BlockTemplateInterface | null;
 
     public function setReturnType(string $Type): self;
 
-    public function getReturnType();
+    public function getReturnType(): string;
 
     public function setScope(string $scope): self;
 
-    public function getScope();
+    public function getScope(): string;
 
     public function setStaticMode(bool $static): self;
 
-    public function getStaticMode();
+    public function getStaticMode(): bool;
 
 }

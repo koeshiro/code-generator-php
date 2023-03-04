@@ -66,7 +66,7 @@ class PropertyTemplate implements PropertyTemplateInterface {
         return str_replace("  ", " ", $result);
     }
 
-    public function getName() {
+    public function getName(): string {
         return $this->name;
     }
 
@@ -84,15 +84,15 @@ class PropertyTemplate implements PropertyTemplateInterface {
         return $this;
     }
 
-    public function getScope() {
+    public function getScope(): string | null {
         return $this->scope;
     }
 
-    public function getStaticMode() {
+    public function getStaticMode(): bool | null {
         return $this->staticMode;
     }
 
-    public function getType() {
+    public function getType(): string {
         return $this->type;
     }
 

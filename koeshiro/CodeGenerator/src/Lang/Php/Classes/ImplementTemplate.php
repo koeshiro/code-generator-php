@@ -19,17 +19,15 @@ class ImplementTemplate implements ImplementTemplateInterface
     public function __toString()
     {
         $arguments = implode(",",array_map(fn($p):string=>(string)$p,$this->arguments));
-        return "new ${$this->class->getName()}($arguments)";
+        return "new {$this->class->getName()}($arguments)";
     }
 
-    public function addArgument(\CodeGenerator\Templates\Interfaces\ArgumentTemplateInterface $Argument)
-    {
+    public function addArgument(\CodeGenerator\Templates\Interfaces\ArgumentTemplateInterface $Argument): ImplementTemplateInterface {
         $this->arguments[] = $Argument;
         return $this;
     }
 
-    public function setClass($Class)
-    {
+    public function setClass(string | ClassTemplateInterface $Class): ImplementTemplateInterface {
         if (is_string($Class) || $Class instanceof ClassTemplateInterface) {
             $this->class = $Class;
         } else {

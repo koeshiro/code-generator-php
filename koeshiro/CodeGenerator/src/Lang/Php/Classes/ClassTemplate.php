@@ -41,7 +41,7 @@ class ClassTemplate implements ClassTemplateInterface {
         return $this->decorators;
     }
 
-    public function getName() {
+    public function getName(): string {
         return $this->name;
     }
 
@@ -66,7 +66,7 @@ class ClassTemplate implements ClassTemplateInterface {
         }
     }
 
-    public function getMethods() {
+    public function getMethods(): array {
         return $this->methods;
     }
 
@@ -83,11 +83,11 @@ class ClassTemplate implements ClassTemplateInterface {
         return $this;
     }
 
-    public function getProperty(string $Name) {
+    public function getProperty(string $Name): PropertyTemplateInterface {
         return $this->properties[$Name];
     }
 
-    public function getProperties() {
+    public function getProperties(): array {
         return $this->properties;
     }
 
@@ -96,11 +96,11 @@ class ClassTemplate implements ClassTemplateInterface {
         return $this;
     }
 
-    public function getExtends() {
+    public function getExtends(): string {
         return $this->extends;
     }
 
-    public function getModification() {
+    public function getModification(): string {
         return $this->modification;
     }
 
@@ -114,7 +114,7 @@ class ClassTemplate implements ClassTemplateInterface {
         return $this;
     }
 
-    public function getImplementsInterface() {
+    public function getImplementsInterface(): array {
         return $this->implements;
     }
 

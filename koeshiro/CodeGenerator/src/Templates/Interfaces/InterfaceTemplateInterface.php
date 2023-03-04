@@ -14,7 +14,7 @@ interface InterfaceTemplateInterface extends \Stringable
 
     public function setName(string $Name): self;
 
-    public function getName();
+    public function getName(): string;
 
     public function setExtends(string $Extends): self;
 
@@ -24,11 +24,11 @@ interface InterfaceTemplateInterface extends \Stringable
 
     public function getMethod(string $Name);
 
-    public function getMethods();
+    public function getMethods(): array;
 
     public function addProperty(PropertyTemplateInterface $property): self;
 
-    public function getProperty(string $Name);
+    public function getProperty(string $Name): PropertyTemplateInterface;
 
-    public function getProperties();
+    public function getProperties(): array;
 }

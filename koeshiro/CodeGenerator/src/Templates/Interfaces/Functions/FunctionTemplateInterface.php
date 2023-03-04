@@ -15,17 +15,17 @@ interface FunctionTemplateInterface extends \Stringable {
     public function getDecorators(): array;
     public function setName(string $Name): self;
 
-    public function getName();
+    public function getName(): string;
 
     public function addArgument(ArgumentTemplateInterface $Argument): self;
 
     public function getArgument(string $Name);
 
-    public function getArguments();
+    public function getArguments(): array;
 
     public function setBlock(BlockTemplateInterface $Block): self;
 
-    public function getBlock();
+    public function getBlock(): BlockTemplateInterface;
 
     public function setReturnType(string $Type): self;
 

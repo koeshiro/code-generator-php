@@ -41,19 +41,19 @@ class MethodTemplate implements MethodTemplateInterface {
         return $this;
     }
 
-    public function getArgument(string $Name) {
+    public function getArgument(string $Name): \CodeGenerator\Templates\Interfaces\ArgumentTemplateInterface {
         return $this->arguments[$Name];
     }
 
-    public function getArguments() {
+    public function getArguments(): array {
         return $this->arguments;
     }
 
-    public function getBlock() {
+    public function getBlock(): BlockTemplateInterface | null {
         return $this->block;
     }
 
-    public function getName() {
+    public function getName(): string {
         return $this->name;
     }
 
@@ -72,15 +72,15 @@ class MethodTemplate implements MethodTemplateInterface {
         return $this;
     }
 
-    public function getReturnType() {
+    public function getReturnType(): string {
         return $this->returnType;
     }
 
-    public function getScope() {
+    public function getScope(): string {
         return $this->scope;
     }
 
-    public function getStaticMode() {
+    public function getStaticMode(): bool {
         return $this->staticMode;
     }
 

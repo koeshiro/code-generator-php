@@ -14,7 +14,7 @@ interface PropertyTemplateInterface extends \Stringable
     public function getDecorators(): array;
     public function setName(string $Name): self;
 
-    public function getName();
+    public function getName() : string;
 
     public function setValue(?ValueTemplateInterface $Value = null): self;
 
@@ -22,13 +22,13 @@ interface PropertyTemplateInterface extends \Stringable
 
     public function setType(string $Type): self;
 
-    public function getType();
+    public function getType(): string;
 
     public function setScope(string $scope): self;
 
-    public function getScope();
+    public function getScope(): string | null;
 
     public function setStaticMode(bool $static): self;
 
-    public function getStaticMode();
+    public function getStaticMode(): bool | null;
 }
