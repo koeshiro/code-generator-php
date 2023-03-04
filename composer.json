@@ -1,5 +1,6 @@
 {
     "name": "koeshiro/code-generator-php",
+    "description": "A package for object style code generation in php.",
     "autoload": {
         "psr-4": {
             "CodeGenerator\\": "koeshiro/CodeGenerator/src"
