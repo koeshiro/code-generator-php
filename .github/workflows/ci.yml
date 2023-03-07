@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: php-actions/composer@v6
+    - name: Units
+      uses: php-actions/phpunit@v3
+      with:
+        configuration: "tests/unit/phpunit.config.xml"
+    - name: E2e
+      uses: php-actions/phpunit@v3
+      with:
+        configuration: "tests/e2e/phpunit.config.xml"
