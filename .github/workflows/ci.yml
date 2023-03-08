@@ -14,7 +14,7 @@ jobs:
     - name: Phpstan
       uses: php-actions/phpstan@v3
       with:
-        command: analise
+        command: analyse
         path: koeshiro/
         configuration: "phpstan.neon"
         memory_limit: 256M
