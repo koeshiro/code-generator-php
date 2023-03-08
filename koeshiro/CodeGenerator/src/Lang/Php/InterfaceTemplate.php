@@ -30,24 +30,25 @@ class InterfaceTemplate implements InterfaceTemplateInterface
                 function(MethodTemplateInterface $o){
                     $arguments = (
                         count($o->getArguments())
-                            ? array_map(function($o){return "${(string)$o}, ";}, $this->propertes)
+                            ? implode("\n",array_map(function($o){return "${(string)$o}, ";}, $this->propertes))
                             : ''
                     );
-                    return 
-                        $o->getScope()
-                            + ' '
-                            + (
+                    return (
+                            $o->getScope()
+                            . ' '
+                            . (
                                 $o->getStaticMode()
                                     ? $o->getStaticMode()
                                     : ''
                             )
-                            + ' function '
-                            + $o->getName()
-                            + '('
-                            + $arguments
-                            + ')'
-                            + strlen($o->getReturnType()) ? ": ${$o->getReturnType()}" : ''
-                            + '';
+                            . ' function '
+                            . $o->getName()
+                            . '('
+                            . $arguments
+                            . ')'
+                            . strlen($o->getReturnType()) > 0 ? ": ${$o->getReturnType()}" : ''
+                            . ''
+                        );
                 }, 
                 $this->methods
         ));
@@ -69,27 +70,27 @@ class InterfaceTemplate implements InterfaceTemplateInterface
         return $this->extends;
     }
 
-    public function getMethod(string $Name)
+    public function getMethod(string $Name): MethodTemplateInterface
     {
         return $this->methods[$Name];
     }
 
-    public function getMethods()
+    public function getMethods(): array
     {
         return $this->methods;
     }
 
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function getProperties()
+    public function getProperties(): array 
     {
         return $this->propertes;
     }
 
-    public function getProperty(string $Name)
+    public function getProperty(string $Name): PropertyTemplateInterface
     {
         return $this->propertes[$Name];
     }

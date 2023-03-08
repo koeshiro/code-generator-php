@@ -8,6 +8,7 @@ namespace CodeGenerator\Templates\Interfaces;
  */
 interface ArgumentTemplateInterface extends \Stringable {
     public function addDecorator(DecoratorTemplateInterface $decorator): self;
+    /** @return array<int,DecoratorTemplateInterface> */
     public function getDecorators(): array;
 
     public function setName(string $name): self;

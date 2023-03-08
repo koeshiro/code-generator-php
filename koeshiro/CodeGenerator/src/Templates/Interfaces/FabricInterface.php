@@ -3,7 +3,7 @@ namespace CodeGenerator\Templates\Interfaces;
 
 use CodeGenerator\Templates\Interfaces\Classes\ClassesFabricInterface;
 use CodeGenerator\Templates\Interfaces\Functions\FunctionsFabricInterface;
-use CodeGenerator\Templates\Interfaces\LoopsFabricInterface;
+use CodeGenerator\Templates\Interfaces\Loops\LoopsFabricInterface;
 use CodeGenerator\Templates\Interfaces\Variable\VariablesFabricInterface;
 use CodeGenerator\Templates\Interfaces\ArgumentTemplateInterface;
 use CodeGenerator\Templates\Interfaces\BlockTemplateInterface;

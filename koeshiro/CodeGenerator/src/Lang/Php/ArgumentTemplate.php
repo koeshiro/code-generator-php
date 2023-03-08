@@ -15,9 +15,9 @@ class ArgumentTemplate implements ArgumentTemplateInterface
 
     protected ?ValueTemplateInterface $value = null;
 
-    protected ?string $name = null;
+    protected string $name = '';
 
-    protected ?string $type = null;
+    protected string $type = '';
     /** @var array<\CodeGenerator\Templates\Interfaces\DecoratorTemplateInterface> */
     protected array $decorators = [];
 

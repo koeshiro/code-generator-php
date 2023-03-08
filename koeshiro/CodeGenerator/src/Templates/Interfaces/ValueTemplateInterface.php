@@ -9,7 +9,7 @@ namespace CodeGenerator\Templates\Interfaces;
 interface ValueTemplateInterface extends \Stringable
 {
 
-    public function setValue($Value): self;
+    public function setValue(mixed $Value): self;
 
-    public function getValue();
+    public function getValue(): \Stringable | string;
 }

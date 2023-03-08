@@ -3,23 +3,26 @@ namespace CodeGenerator\Lang\Php\Classes;
 
 use CodeGenerator\Templates\Interfaces\Classes\ImplementTemplateInterface;
 use \CodeGenerator\Templates\Interfaces\Classes\ClassTemplateInterface;
+use CodeGenerator\LangTemplateException;
 
 /**
- * Description of ImplementTemplate
- *
  * @author koesh
  */
 class ImplementTemplate implements ImplementTemplateInterface
 {
+    /** @var array<\CodeGenerator\Templates\Interfaces\ArgumentTemplateInterface> */
+    protected array $arguments = [];
 
-    protected $arguments = [];
-
-    protected ?ClassTemplateInterface $class = null;
+    protected ClassTemplateInterface | string | null  $class = null;
     
     public function __toString()
     {
         $arguments = implode(",",array_map(fn($p):string=>(string)$p,$this->arguments));
-        return "new {$this->class->getName()}($arguments)";
+        if ($this->class === null) {
+            throw new LangTemplateException('Class is not defined','php');
+        }
+        $className = is_string($this->class) ? $this->class : $this->class->getName();
+        return "new {$className}($arguments)";
     }
 
     public function addArgument(\CodeGenerator\Templates\Interfaces\ArgumentTemplateInterface $Argument): ImplementTemplateInterface {
@@ -28,11 +31,7 @@ class ImplementTemplate implements ImplementTemplateInterface
     }
 
     public function setClass(string | ClassTemplateInterface $Class): ImplementTemplateInterface {
-        if (is_string($Class) || $Class instanceof ClassTemplateInterface) {
-            $this->class = $Class;
-        } else {
-            throw new \CodeGenerator\LangTemplateException("\$Class is not valid. Class mast by string or implement ClassTemplateInterface", "Php");
-        }
+        $this->class = $Class;
         return $this;
     }
 }

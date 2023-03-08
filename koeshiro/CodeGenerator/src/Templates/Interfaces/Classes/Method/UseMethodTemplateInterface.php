@@ -3,10 +3,9 @@ namespace CodeGenerator\Templates\Interfaces\Classes\Method;
 
 use CodeGenerator\Templates\Interfaces\Classes\ClassTemplateInterface;
 use \CodeGenerator\Templates\Interfaces\Variable\VariableTemplateInterface;
+use CodeGenerator\Templates\Interfaces\ArgumentTemplateInterface;
 
 /**
- * Класс для умправлений методами объектов
- *
  * @author koesh
  */
 interface UseMethodTemplateInterface extends \Stringable
@@ -18,8 +17,7 @@ interface UseMethodTemplateInterface extends \Stringable
     public function setMethod(MethodTemplateInterface|string $Method): self;
 
     /**
-     *
-     * @param array<\Stringable|string> $arguments
+     * @param array<int,\Stringable|string|ArgumentTemplateInterface> $arguments
      */
-    public function setArguments(\Stringable|string $argument): self;
+    public function setArguments(array $arguments): self;
 }

@@ -9,7 +9,7 @@ namespace CodeGenerator;
 class LangTemplateException extends \Exception implements Interfaces\LangTemplateExceptionInterface
 {
 
-    protected $lang = null;
+    protected string $lang = '';
 
     public function __construct(string $message = "", string $lang = "php", int $code = 0, \Throwable $previous = NULL)
     {
@@ -17,7 +17,7 @@ class LangTemplateException extends \Exception implements Interfaces\LangTemplat
         parent::__construct($message, $code, $previous);
     }
 
-    public function getLang()
+    public function getLang(): string
     {
         return $this->lang;
     }

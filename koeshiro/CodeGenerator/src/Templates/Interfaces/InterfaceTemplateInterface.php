@@ -22,13 +22,13 @@ interface InterfaceTemplateInterface extends \Stringable
 
     public function addMethod(MethodTemplateInterface $Method): self;
 
-    public function getMethod(string $Name);
-
+    public function getMethod(string $Name): MethodTemplateInterface;
+    /** @return array<int, MethodTemplateInterface> */
     public function getMethods(): array;
 
     public function addProperty(PropertyTemplateInterface $property): self;
 
     public function getProperty(string $Name): PropertyTemplateInterface;
-
+    /** @return array<int, PropertyTemplateInterface> */
     public function getProperties(): array;
 }

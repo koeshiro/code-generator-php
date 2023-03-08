@@ -12,9 +12,9 @@ use CodeGenerator\Templates\Interfaces\ValueTemplateInterface;
 class ValueTemplate implements ValueTemplateInterface
 {
 
-    protected $value;
+    protected mixed $value;
 
-    protected function isAllowedToSerialize($value)
+    protected function isAllowedToSerialize(mixed $value): bool
     {
         $type = gettype($value);
         if($type === "boolean" || $type === "integer" || $type === "double" || ($type === "object" && $value instanceof \Serializable)) {
@@ -23,8 +23,10 @@ class ValueTemplate implements ValueTemplateInterface
             return false;
         }
     }
-
-    protected function isAllowedToSerializeArray($array)
+    /**
+     * @param array<int,mixed> $array
+     */
+    protected function isAllowedToSerializeArray(array $array): bool
     {
         foreach ($array as $item) {
             if (! $this->isAllowedToSerialize($item)) {
@@ -76,12 +78,12 @@ class ValueTemplate implements ValueTemplateInterface
         return $prepearedValue;
     }
 
-    public function getValue()
+    public function getValue(): \Stringable | string
     {
         return $this->value;
     }
 
-    public function setValue($Value): ValueTemplateInterface {
+    public function setValue(mixed $Value): ValueTemplateInterface {
         $this->value = $Value;
         return $this;
     }

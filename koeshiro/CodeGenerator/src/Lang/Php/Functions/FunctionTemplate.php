@@ -64,24 +64,24 @@ class FunctionTemplate implements FunctionTemplateInterface
         return $this;
     }
 
-    public function getArgument(string $Name)
+    public function getArgument(string $Name): ArgumentTemplateInterface
     {
         return $this->arguments[$Name];
     }
 
-    public function getArguments()
+    public function getArguments(): array
     {
         return $this->arguments;
     }
 
-    public function getBlock()
+    public function getBlock(): ?BlockTemplateInterface
     {
         return $this->block;
     }
 
-    public function getName()
+    public function getName(): string
     {
-        $this->name;
+        return $this->name;
     }
 
     public function setBlock(BlockTemplateInterface $Block): FunctionTemplateInterface {

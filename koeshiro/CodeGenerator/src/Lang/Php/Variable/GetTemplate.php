@@ -17,6 +17,6 @@ class GetTemplate implements GetTemplateInterface {
     }
 
     public function __toString():string {
-        return '$' . $this->variable->getName();
+        return '$' . $this->variable?->getName();
     }
 }

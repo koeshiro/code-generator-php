@@ -7,6 +7,8 @@ use CodeGenerator\Lang\Php\Variable\VariableTemplate;
 
 use CodeGenerator\Lang\Php\Variable\VariablesFabric;
 
+use CodeGenerator\LangTemplateException;
+
 /**
  * Description of ForeachTemplate
  *
@@ -25,6 +27,9 @@ class ForeachTemplate implements ForeachTemplateInterface {
     }
 
     public function __toString():string {
+        if ($this->array === null) {
+            throw new LangTemplateException('Array of loop is not defined',"php");
+        }
         return 'foreach('
             . (string)$this->variablesFabric->createGetVariable()->setVariable($this->array)
             . ' '

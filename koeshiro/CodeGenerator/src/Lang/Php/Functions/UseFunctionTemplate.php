@@ -2,7 +2,7 @@
 namespace CodeGenerator\Lang\Php\Functions;
 
 use CodeGenerator\Templates\Interfaces\Functions\UseFunctionTemplateInterface;
-use CodeGenerator\Templates\Interfaces\Functions\FunctionTemplateInterface; 
+use CodeGenerator\Templates\Interfaces\Functions\FunctionTemplateInterface;
 use CodeGenerator\Templates\Interfaces\ArgumentTemplateInterface;
 
 /**
@@ -12,11 +12,11 @@ use CodeGenerator\Templates\Interfaces\ArgumentTemplateInterface;
  */
 class UseFunctionTemplate implements UseFunctionTemplateInterface
 {
-    /** @var array<ArgumentTemplateInterface> */
+    /** @var array<\Stringable|string|ArgumentTemplateInterface> */
     protected array $arguments = [];
     protected ?FunctionTemplateInterface $method = null;
     // put your code here
-    /** @var array<ArgumentTemplateInterface> */
+    /** @param array<\Stringable|string|ArgumentTemplateInterface> $arguments */
     public function setArguments(array $arguments): UseFunctionTemplateInterface {
         $this->arguments = $arguments;
         return $this;

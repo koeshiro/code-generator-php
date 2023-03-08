@@ -10,10 +10,5 @@ namespace CodeGenerator\Templates\Interfaces;
  */
 interface BlockTemplateInterface extends \Stringable
 {
-
-    /**
-     *
-     * @param <\Stringable|string> $Line
-     */
     public function addLine(\Stringable | string $Line): self;
 }

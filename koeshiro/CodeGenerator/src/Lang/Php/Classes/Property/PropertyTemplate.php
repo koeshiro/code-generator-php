@@ -40,7 +40,10 @@ class PropertyTemplate implements PropertyTemplateInterface {
         );
         $staticMode = $this->getStaticMode() !== null ? $this->getStaticMode() : false;
         $scope = '';
-        if (in_array(strtolower($this->getScope()), ["protected", "public", "private"])) {
+        if (
+            $this->getScope() !== null
+            && in_array(strtolower($this->getScope()), ["protected", "public", "private"])
+        ) {
             $scope = strtolower($this->getScope());
         }
         $result = $decorators
@@ -52,7 +55,7 @@ class PropertyTemplate implements PropertyTemplateInterface {
                 : ''
             )
             . (
-                $this->getType() !== null
+                $this->getType() !== ''
                 ? ' ' . $this->getType() . ' '
                 : ""
             )

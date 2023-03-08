@@ -11,7 +11,7 @@ use CodeGenerator\Templates\Interfaces\ValueTemplateInterface;
  */
 class VariableTemplate implements VariableTemplateInterface
 {
-    protected ?string $name = null;
+    protected string $name = '';
     protected ?ValueTemplateInterface $value = null;
 
     public function getValue(): ?ValueTemplateInterface {

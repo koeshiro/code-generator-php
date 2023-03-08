@@ -58,7 +58,7 @@ class ClassTemplate implements ClassTemplateInterface {
         return $this;
     }
 
-    public function getMethod(string $Name): MethodTemplateInterface | null {
+    public function getMethod(string $Name): ?MethodTemplateInterface {
         if (array_key_exists($Name, $this->methods)) {
             return $this->methods[$Name];
         } else {
@@ -73,7 +73,7 @@ class ClassTemplate implements ClassTemplateInterface {
     public function useMethod(string $Name, array $Arguments): UseMethodTemplateInterface {
         $use = new Method\UseMethodTemplate();
         $use->setArguments($Arguments);
-        $use->setMethod($this->getMethod($Name));
+        $use->setMethod($this->getMethod($Name) !== null ? $this->getMethod($Name) : $Name);
         $use->setObject($this);
         return $use;
     }
@@ -83,7 +83,7 @@ class ClassTemplate implements ClassTemplateInterface {
         return $this;
     }
 
-    public function getProperty(string $Name): PropertyTemplateInterface {
+    public function getProperty(string $Name): ?PropertyTemplateInterface {
         return $this->properties[$Name];
     }
 

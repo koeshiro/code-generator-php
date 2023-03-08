@@ -10,5 +10,5 @@ interface LangTemplateExceptionInterface
 
     public function __construct(string $message = "", string $lang = "php", int $code = 0, \Throwable $previous = NULL);
 
-    public function getLang();
+    public function getLang() : string;
 }

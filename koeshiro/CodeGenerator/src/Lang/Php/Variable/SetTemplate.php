@@ -14,7 +14,7 @@ class SetTemplate implements SetTemplateInterface
 {
     protected ?ValueTemplateInterface $value = null;
     protected ?VariableTemplateInterface $variable = null;
-    public function setValue(ValueTemplateInterface $Value = null): SetTemplateInterface {
+    public function setValue(?ValueTemplateInterface $Value = null): SetTemplateInterface {
         $this->value = $Value;
         return $this;
     }
@@ -25,6 +25,6 @@ class SetTemplate implements SetTemplateInterface
     }
 
     public function __toString() {
-        return $this->variable->getName() . ' = ' . (string)$this->value;
+        return $this->variable?->getName() . ' = ' . (string)$this->value;
     }
 }

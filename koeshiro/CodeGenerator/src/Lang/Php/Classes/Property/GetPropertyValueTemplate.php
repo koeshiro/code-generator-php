@@ -16,7 +16,7 @@ class GetPropertyValueTemplate implements GetPropertyValueTemplateInterface
 {
     protected ClassTemplateInterface|VariableTemplateInterface|string|null $object = null;
     protected PropertyTemplateInterface|string|null $property = null;
-    protected string|null $staticMode = null;
+    protected ?bool $staticMode = null;
     public function __toString() {
         if ($this->object instanceof ClassTemplateInterface) {
             $useObject = $this->object->getName();
@@ -46,16 +46,19 @@ class GetPropertyValueTemplate implements GetPropertyValueTemplateInterface
         return $useObject . $useFormat . $useProperty . ";";
     }
 
-    public function setObject(ClassTemplateInterface|VariableTemplateInterface|string $Class) {
+    public function setObject(ClassTemplateInterface|VariableTemplateInterface|string $Class): GetPropertyValueTemplateInterface {
         $this->object = $Class;
+        return $this;
     }
 
-    public function setProperty(PropertyTemplateInterface|string $property) {
+    public function setProperty(PropertyTemplateInterface|string $property): GetPropertyValueTemplateInterface {
         $this->property = $property;
+        return $this;
     }
 
-    public function setUseStaticMode(bool $mode) {
+    public function setUseStaticMode(bool $mode): GetPropertyValueTemplateInterface {
         $this->staticMode = $mode;
+        return $this;
     }
 
 }

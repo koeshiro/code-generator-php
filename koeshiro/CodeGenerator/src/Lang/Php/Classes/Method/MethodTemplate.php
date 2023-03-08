@@ -19,8 +19,8 @@ class MethodTemplate implements MethodTemplateInterface {
     protected string $scope = '';
     protected bool $staticMode = false;
 
-    /** @var \CodeGenerator\Templates\Interfaces\ArgumentTemplateInterface */
-    protected $arguments = [];
+    /** @var array<\CodeGenerator\Templates\Interfaces\ArgumentTemplateInterface> */
+    protected array $arguments = [];
     /** @var array<\CodeGenerator\Templates\Interfaces\DecoratorTemplateInterface> */
     protected array $decorators = [];
 
@@ -35,7 +35,6 @@ class MethodTemplate implements MethodTemplateInterface {
         return $this->decorators;
     }
 
-    // put your code here
     public function addArgument(\CodeGenerator\Templates\Interfaces\ArgumentTemplateInterface $Argument): MethodTemplateInterface {
         $this->arguments[$Argument->getName()] = $Argument;
         return $this;

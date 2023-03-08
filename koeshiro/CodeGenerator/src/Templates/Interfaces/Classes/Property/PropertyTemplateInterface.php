@@ -11,6 +11,7 @@ use CodeGenerator\Templates\Interfaces\DecoratorTemplateInterface;
 interface PropertyTemplateInterface extends \Stringable
 {
     public function addDecorator(DecoratorTemplateInterface $decorator): self;
+    /** @return array<DecoratorTemplateInterface> */
     public function getDecorators(): array;
     public function setName(string $Name): self;
 

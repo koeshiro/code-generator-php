@@ -13,6 +13,7 @@ use CodeGenerator\Templates\Interfaces\ReturnTemplateInterface;
 interface MethodTemplateInterface extends \Stringable
 {
     public function addDecorator(DecoratorTemplateInterface $decorator): self;
+    /** @return array<int,DecoratorTemplateInterface> */
     public function getDecorators(): array;
 
     public function setName(string $Name): self;
@@ -23,7 +24,7 @@ interface MethodTemplateInterface extends \Stringable
     public function addArgument(ArgumentTemplateInterface $Argument): self;
 
     public function getArgument(string $Name): ArgumentTemplateInterface;
-
+    /** @return array<int,ArgumentTemplateInterface> */
     public function getArguments(): array;
 
 

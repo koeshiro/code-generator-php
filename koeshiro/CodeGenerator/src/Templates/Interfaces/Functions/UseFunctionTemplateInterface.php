@@ -1,6 +1,8 @@
 <?php
 namespace CodeGenerator\Templates\Interfaces\Functions;
 
+use CodeGenerator\Templates\Interfaces\ArgumentTemplateInterface;
+
 
 /**
  *
@@ -13,7 +15,7 @@ interface UseFunctionTemplateInterface
 
     /**
      *
-     * @param array<\Stringable|string> $arguments
+     * @param array<\Stringable|string|ArgumentTemplateInterface> $arguments
      */
-    public function setArguments($arguments): self;
+    public function setArguments(array $arguments): self;
 }
