@@ -1,0 +1,18 @@
+name: Push to packagis
+
+on:
+  workflow_dispatch:
+    branches: [main]
+
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: push
+        uses: mnavarrocarter/packagist-update@v1.0
+        with:
+          username: "koeshiro"
+          api_token: ${{ secrets.packagist_token }}
+          package_name: koeshiro/code-generator-php
+          domain: "packagist.org"
