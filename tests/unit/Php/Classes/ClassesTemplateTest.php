@@ -47,7 +47,7 @@ class ClassesTemplateTest extends TestCase {
                     )
             );
         $this->assertStringContainsString('class Test', (string)$classTemplate);
-        $this->assertStringContainsString('protected ?string testProp', (string)$classTemplate);
+        $this->assertStringContainsString('protected ?string $testProp', (string)$classTemplate);
         $this->assertStringContainsString('public function setTestProp(string $data', (string)$classTemplate);
         $this->assertStringContainsString('$this->testProp = $data', (string)$classTemplate);
         $this->assertStringContainsString('public function testFun(string $test', (string)$classTemplate);
