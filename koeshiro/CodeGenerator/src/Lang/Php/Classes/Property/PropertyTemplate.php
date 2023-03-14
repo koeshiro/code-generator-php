@@ -42,7 +42,7 @@ class PropertyTemplate implements PropertyTemplateInterface {
         $scope = '';
         if (
             $this->getScope() !== null
-            && in_array(strtolower($this->getScope()), ["protected", "public", "private"])
+            && in_array(strtolower($this->getScope()), ['protected', 'public', 'private'])
         ) {
             $scope = strtolower($this->getScope());
         }
@@ -57,8 +57,9 @@ class PropertyTemplate implements PropertyTemplateInterface {
             . (
                 $this->getType() !== ''
                 ? ' ' . $this->getType() . ' '
-                : ""
+                : ''
             )
+            . '$'
             . $this->getName()
             . (
                 $this->getValue() !== null
