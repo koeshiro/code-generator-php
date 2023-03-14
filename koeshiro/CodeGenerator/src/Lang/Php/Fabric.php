@@ -51,4 +51,9 @@ class Fabric implements FabricInterface
     public function createVariablesFabric(): \CodeGenerator\Templates\Interfaces\Variable\VariablesFabricInterface {
         return new Variable\VariablesFabric();
     }
+
+    public function createUse(): \CodeGenerator\Templates\Interfaces\UseTemplateInterface {
+        return new UseTemplate();
+    }
+
 }

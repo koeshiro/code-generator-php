@@ -11,6 +11,7 @@ use CodeGenerator\Templates\Interfaces\InterfaceTemplateInterface;
 use CodeGenerator\Templates\Interfaces\NamespaceTemplateInterface;
 use CodeGenerator\Templates\Interfaces\ReturnTemplateInterface;
 use CodeGenerator\Templates\Interfaces\ValueTemplateInterface;
+use CodeGenerator\Templates\Interfaces\UseTemplateInterface;
 
 /**
  *
@@ -38,4 +39,6 @@ interface FabricInterface
     public function createReturn(): ReturnTemplateInterface;
 
     public function createValue(): ValueTemplateInterface;
+
+    public function createUse(): UseTemplateInterface;
 }

@@ -1,20 +1,39 @@
 <?php
 use CodeGenerator\Lang\Php\BlockTemplate;
 use CodeGenerator\Lang\Php\Classes\ClassesFabric;
-use CodeGenerator\Lang\Php\Classes\Method\MethodTemplate;
 use CodeGenerator\Templates\Interfaces\Classes\Method\MethodTemplateInterface;
 use CodeGenerator\Templates\Interfaces\Classes\ClassTemplateInterface;
+use CodeGenerator\Lang\Php\Fabric;
 use PHPUnit\Framework\TestCase;
 
 class ClassesFromInterfacesE2eTest extends TestCase {
 
     protected function requireObjects() {
-        $fabric = (new ClassesFabric());
-        $fabric->createArgument();
-        $fabric->createClasses();
-        $fabric->createImplement();
-        $fabric->createMethod();
-        $fabric->createProperty();
+        $globalFabric = new Fabric();
+        $globalFabric->createArgument();
+        $globalFabric->createBlock();
+        $globalFabric->createClassesFabric();
+        $globalFabric->createClassesFabric()->createArgument();
+        $globalFabric->createClassesFabric()->createClasses();
+        $globalFabric->createClassesFabric()->createImplement();
+        $globalFabric->createClassesFabric()->createMethod();
+        $globalFabric->createClassesFabric()->createProperty();
+        $globalFabric->createFunctionsFabric();
+        $globalFabric->createFunctionsFabric()->createArgument();
+        $globalFabric->createFunctionsFabric()->createFunction();
+        $globalFabric->createFunctionsFabric()->createUseFunction();
+        $globalFabric->createInterface();
+        $globalFabric->createLoopsFabric();
+        $globalFabric->createLoopsFabric()->createForeach();
+        $globalFabric->createLoopsFabric()->createWhile();
+        $globalFabric->createNamespace();
+        $globalFabric->createReturn();
+        $globalFabric->createValue();
+        $globalFabric->createVariablesFabric();
+        $globalFabric->createVariablesFabric()->createVariable();
+        $globalFabric->createVariablesFabric()->createGetVariable();
+        $globalFabric->createVariablesFabric()->createSetVariable();
+        $globalFabric->createUse();
     }
 
     protected function isNeedProperty(ReflectionMethod $method) {
@@ -101,9 +120,10 @@ class ClassesFromInterfacesE2eTest extends TestCase {
             }
         }
         foreach($interfacesToUse as $index => $interfaceName) {
-            $results[]=$this->generateCodeByInterfaceReflection(new ReflectionClass($interfaceName));
+            $results[$interfaceName]=$this->generateCodeByInterfaceReflection(new ReflectionClass($interfaceName));
         }
-        foreach($results as $result) {
+        foreach($results as $interfaceName => $result) {
+            $this->assertStringContainsString($interfaceName, (string) $result);
             $this->assertStringContainsString('implements', (string) $result);
         }
     }
