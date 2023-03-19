@@ -1,8 +1,9 @@
 <?php
+
 namespace CodeGenerator\Lang\Php;
 
-use CodeGenerator\Templates\Interfaces\NamespaceTemplateInterface;
 use CodeGenerator\Templates\Interfaces\BlockTemplateInterface;
+use CodeGenerator\Templates\Interfaces\NamespaceTemplateInterface;
 
 /**
  * Description of NamespaceTemplateI
@@ -11,7 +12,6 @@ use CodeGenerator\Templates\Interfaces\BlockTemplateInterface;
  */
 class NamespaceTemplate implements NamespaceTemplateInterface
 {
-
     protected string $namespace;
 
     protected ?BlockTemplateInterface $block = null;
@@ -22,18 +22,22 @@ class NamespaceTemplate implements NamespaceTemplateInterface
         return $this->namespace;
     }
 
-    public function setBlock(BlockTemplateInterface $Block): NamespaceTemplateInterface {
+    public function setBlock(BlockTemplateInterface $Block): NamespaceTemplateInterface
+    {
         $this->block = $Block;
+
         return $this;
     }
 
-    public function setNamespace(string $Namespace): NamespaceTemplateInterface {
+    public function setNamespace(string $Namespace): NamespaceTemplateInterface
+    {
         $this->namespace = $Namespace;
+
         return $this;
     }
 
     public function __toString()
     {
-        return "namespace $this->namespace; " . ((string) $this->block);
+        return "namespace $this->namespace; ".((string) $this->block);
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace CodeGenerator\Lang\Php\Functions;
 
 use CodeGenerator\Templates\Interfaces\Functions\FunctionsFabricInterface;
@@ -10,7 +11,6 @@ use CodeGenerator\Templates\Interfaces\Functions\FunctionsFabricInterface;
  */
 class FunctionsFabric implements FunctionsFabricInterface
 {
-
     // put your code here
     public function createArgument(): \CodeGenerator\Templates\Interfaces\ArgumentTemplateInterface
     {

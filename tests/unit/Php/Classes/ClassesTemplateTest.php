@@ -1,13 +1,16 @@
 <?php
-use PHPUnit\Framework\TestCase;
+
+use CodeGenerator\Lang\Php\ArgumentTemplate;
+use CodeGenerator\Lang\Php\BlockTemplate;
 use CodeGenerator\Lang\Php\Classes\ClassTemplate;
 use CodeGenerator\Lang\Php\Classes\Method\MethodTemplate;
 use CodeGenerator\Lang\Php\Classes\Property\PropertyTemplate;
-use CodeGenerator\Lang\Php\ArgumentTemplate;
-use CodeGenerator\Lang\Php\BlockTemplate;
+use PHPUnit\Framework\TestCase;
 
-class ClassesTemplateTest extends TestCase {
-    public function testClassesTemplate() {
+class ClassesTemplateTest extends TestCase
+{
+    public function testClassesTemplate()
+    {
         $classTemplate = (new ClassTemplate())
             ->setName('Test')
             ->addProperty(
@@ -46,11 +49,11 @@ class ClassesTemplateTest extends TestCase {
                             ->addLine('return \'test\'.$test;')
                     )
             );
-        $this->assertStringContainsString('class Test', (string)$classTemplate);
-        $this->assertStringContainsString('protected ?string $testProp', (string)$classTemplate);
-        $this->assertStringContainsString('public function setTestProp(string $data', (string)$classTemplate);
-        $this->assertStringContainsString('$this->testProp = $data', (string)$classTemplate);
-        $this->assertStringContainsString('public function testFun(string $test', (string)$classTemplate);
-        $this->assertStringContainsString('return \'test\'.$test;', (string)$classTemplate);
+        $this->assertStringContainsString('class Test', (string) $classTemplate);
+        $this->assertStringContainsString('protected ?string $testProp', (string) $classTemplate);
+        $this->assertStringContainsString('public function setTestProp(string $data', (string) $classTemplate);
+        $this->assertStringContainsString('$this->testProp = $data', (string) $classTemplate);
+        $this->assertStringContainsString('public function testFun(string $test', (string) $classTemplate);
+        $this->assertStringContainsString('return \'test\'.$test;', (string) $classTemplate);
     }
 }

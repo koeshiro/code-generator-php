@@ -1,9 +1,10 @@
 <?php
+
 namespace CodeGenerator\Lang\Php;
 
 use CodeGenerator\Templates\Interfaces\ArgumentTemplateInterface;
-use CodeGenerator\Templates\Interfaces\ValueTemplateInterface;
 use CodeGenerator\Templates\Interfaces\DecoratorTemplateInterface;
+use CodeGenerator\Templates\Interfaces\ValueTemplateInterface;
 
 /**
  * Description of ArgumentTemplate
@@ -12,38 +13,48 @@ use CodeGenerator\Templates\Interfaces\DecoratorTemplateInterface;
  */
 class ArgumentTemplate implements ArgumentTemplateInterface
 {
-
     protected ?ValueTemplateInterface $value = null;
 
     protected string $name = '';
 
     protected string $type = '';
+
     /** @var array<\CodeGenerator\Templates\Interfaces\DecoratorTemplateInterface> */
     protected array $decorators = [];
 
-    public function addDecorator(DecoratorTemplateInterface $decorator): self {
+    public function addDecorator(DecoratorTemplateInterface $decorator): self
+    {
         $this->decorators[] = $decorator;
+
         return $this;
     }
+
     /**
      * @return array<\CodeGenerator\Templates\Interfaces\DecoratorTemplateInterface>
      */
-    public function getDecorators(): array {
+    public function getDecorators(): array
+    {
         return $this->decorators;
     }
 
-    public function setName(string $name): ArgumentTemplateInterface {
+    public function setName(string $name): ArgumentTemplateInterface
+    {
         $this->name = $name;
+
         return $this;
     }
 
-    public function setType(string $type = ''): ArgumentTemplateInterface {
+    public function setType(string $type = ''): ArgumentTemplateInterface
+    {
         $this->type = $type;
+
         return $this;
     }
 
-    public function setValue(?ValueTemplateInterface $value): ArgumentTemplateInterface {
+    public function setValue(?ValueTemplateInterface $value): ArgumentTemplateInterface
+    {
         $this->value = $value;
+
         return $this;
     }
 
@@ -61,14 +72,15 @@ class ArgumentTemplate implements ArgumentTemplateInterface
     {
         return $this->type;
     }
-    
-    public function __toString() {
+
+    public function __toString()
+    {
         return str_replace(
-            "  ",
-            " ",
+            '  ',
+            ' ',
             (
                 count($this->decorators)
-                    ? implode(' ',array_map(fn($p): string => (string) $p, $this->decorators)).' '
+                    ? implode(' ', array_map(fn ($p): string => (string) $p, $this->decorators)).' '
                     : ''
             )
             .$this->type
@@ -76,7 +88,7 @@ class ArgumentTemplate implements ArgumentTemplateInterface
             .$this->name
             .(
                 $this->value
-                    ? ' = '. ((string) $this->value)
+                    ? ' = '.((string) $this->value)
                     : ''
             )
         );

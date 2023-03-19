@@ -1,4 +1,5 @@
 <?php
+
 namespace CodeGenerator\Templates\Interfaces\Classes;
 
 use CodeGenerator\Templates\Interfaces\Classes\Method\MethodTemplateInterface;
@@ -7,11 +8,12 @@ use CodeGenerator\Templates\Interfaces\Classes\Property\PropertyTemplateInterfac
 use CodeGenerator\Templates\Interfaces\DecoratorTemplateInterface;
 
 /**
- *
  * @author koesh
  */
-interface ClassTemplateInterface extends \Stringable {
+interface ClassTemplateInterface extends \Stringable
+{
     public function addDecorator(DecoratorTemplateInterface $decorator): self;
+
     /** @return array<int,DecoratorTemplateInterface> */
     public function getDecorators(): array;
 
@@ -28,6 +30,7 @@ interface ClassTemplateInterface extends \Stringable {
     public function getExtends(): string;
 
     public function addImplementInterface(string $Implement): self;
+
     /** @return array<int,string> */
     public function getImplementsInterface(): array;
 
@@ -36,8 +39,7 @@ interface ClassTemplateInterface extends \Stringable {
     public function getMethod(string $Name): ?MethodTemplateInterface;
 
     /**
-     * @param string $Name
-     * @param array<int,\Stringable|string> $Arguments
+     * @param  array<int,\Stringable|string>  $Arguments
      */
     public function useMethod(string $Name, array $Arguments): UseMethodTemplateInterface;
 
@@ -47,6 +49,7 @@ interface ClassTemplateInterface extends \Stringable {
     public function addProperty(PropertyTemplateInterface $property): self;
 
     public function getProperty(string $Name): ?PropertyTemplateInterface;
+
     /** @return array<int,PropertyTemplateInterface> */
     public function getProperties(): array;
 }

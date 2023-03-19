@@ -1,4 +1,5 @@
 <?php
+
 namespace CodeGenerator\Lang\Php;
 
 use CodeGenerator\Templates\Interfaces\BlockTemplateInterface;
@@ -16,15 +17,18 @@ class BlockTemplate implements BlockTemplateInterface
     // put your code here
     public function __toString()
     {
-        $code = "";
+        $code = '';
         foreach ($this->lines as $line) {
-            $code .= "\t" . ((string) $line);
+            $code .= "\t".((string) $line);
         }
+
         return "{\n\t$code\n}";
     }
 
-    public function addLine(string|\Stringable $Line): BlockTemplateInterface {
+    public function addLine(string|\Stringable $Line): BlockTemplateInterface
+    {
         $this->lines[] = $Line;
+
         return $this;
     }
 }

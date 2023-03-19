@@ -1,30 +1,25 @@
 <?php
+
 namespace CodeGenerator\Templates\Interfaces;
 
 use CodeGenerator\Templates\Interfaces\Classes\ClassesFabricInterface;
 use CodeGenerator\Templates\Interfaces\Functions\FunctionsFabricInterface;
+use CodeGenerator\Templates\Interfaces\Logic\LogicFabricInterface;
 use CodeGenerator\Templates\Interfaces\Loops\LoopsFabricInterface;
 use CodeGenerator\Templates\Interfaces\Variable\VariablesFabricInterface;
-use CodeGenerator\Templates\Interfaces\ArgumentTemplateInterface;
-use CodeGenerator\Templates\Interfaces\BlockTemplateInterface;
-use CodeGenerator\Templates\Interfaces\InterfaceTemplateInterface;
-use CodeGenerator\Templates\Interfaces\NamespaceTemplateInterface;
-use CodeGenerator\Templates\Interfaces\ReturnTemplateInterface;
-use CodeGenerator\Templates\Interfaces\ValueTemplateInterface;
-use CodeGenerator\Templates\Interfaces\UseTemplateInterface;
 
 /**
- *
  * @author rustamborhanov
  */
 interface FabricInterface
 {
-
     public function createClassesFabric(): ClassesFabricInterface;
 
     public function createFunctionsFabric(): FunctionsFabricInterface;
 
     public function createLoopsFabric(): LoopsFabricInterface;
+
+    public function createLogicFabric(): LogicFabricInterface;
 
     public function createVariablesFabric(): VariablesFabricInterface;
 

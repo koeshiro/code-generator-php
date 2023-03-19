@@ -1,4 +1,5 @@
 <?php
+
 namespace CodeGenerator\Templates\Interfaces;
 
 /**
@@ -8,8 +9,7 @@ namespace CodeGenerator\Templates\Interfaces;
  */
 interface ValueTemplateInterface extends \Stringable
 {
-
     public function setValue(mixed $Value): self;
 
-    public function getValue(): \Stringable | string;
+    public function getValue(): \Stringable|string;
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace CodeGenerator\Templates\Interfaces\Logic;
 
 use CodeGenerator\Templates\Interfaces\BlockTemplateInterface;
@@ -10,7 +11,6 @@ use CodeGenerator\Templates\Interfaces\BlockTemplateInterface;
  */
 interface IfElseTemplateInterface extends \Stringable
 {
-
     public function setIf(LogicBlock\LogicBlockTemplateInterface $Logic, BlockTemplateInterface $Block): self;
 
     public function addIfElse(LogicBlock\LogicBlockTemplateInterface $Logic, BlockTemplateInterface $Block): self;

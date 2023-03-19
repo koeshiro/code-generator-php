@@ -1,4 +1,5 @@
 <?php
+
 namespace CodeGenerator\Lang\Php\Variable;
 
 use CodeGenerator\Templates\Interfaces\Variable\GetTemplateInterface;
@@ -9,14 +10,19 @@ use CodeGenerator\Templates\Interfaces\Variable\VariableTemplateInterface;
  *
  * @author rustamborhanov
  */
-class GetTemplate implements GetTemplateInterface {
+class GetTemplate implements GetTemplateInterface
+{
     protected ?VariableTemplateInterface $variable = null;
-    public function setVariable(VariableTemplateInterface $Variable): GetTemplateInterface {
+
+    public function setVariable(VariableTemplateInterface $Variable): GetTemplateInterface
+    {
         $this->variable = $Variable;
+
         return $this;
     }
 
-    public function __toString():string {
-        return '$' . $this->variable?->getName();
+    public function __toString(): string
+    {
+        return '$'.$this->variable?->getName();
     }
 }

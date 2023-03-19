@@ -1,4 +1,5 @@
 <?php
+
 namespace CodeGenerator\Templates\Interfaces;
 
 /**
@@ -10,5 +11,5 @@ namespace CodeGenerator\Templates\Interfaces;
  */
 interface BlockTemplateInterface extends \Stringable
 {
-    public function addLine(\Stringable | string $Line): self;
+    public function addLine(\Stringable|string $Line): self;
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace CodeGenerator\Templates\Interfaces;
 
 /**
@@ -6,17 +7,22 @@ namespace CodeGenerator\Templates\Interfaces;
  *
  * @author koesh
  */
-interface ArgumentTemplateInterface extends \Stringable {
+interface ArgumentTemplateInterface extends \Stringable
+{
     public function addDecorator(DecoratorTemplateInterface $decorator): self;
+
     /** @return array<int,DecoratorTemplateInterface> */
     public function getDecorators(): array;
 
     public function setName(string $name): self;
-    public function getName():string;
+
+    public function getName(): string;
 
     public function setValue(?ValueTemplateInterface $value): self;
-    public function getValue():?ValueTemplateInterface;
+
+    public function getValue(): ?ValueTemplateInterface;
 
     public function setType(string $type = ''): self;
-    public function getType():string;
+
+    public function getType(): string;
 }

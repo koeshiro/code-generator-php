@@ -1,8 +1,9 @@
 <?php
+
 namespace CodeGenerator\Lang\Php\Variable;
 
-use CodeGenerator\Templates\Interfaces\Variable\VariableTemplateInterface;
 use CodeGenerator\Templates\Interfaces\ValueTemplateInterface;
+use CodeGenerator\Templates\Interfaces\Variable\VariableTemplateInterface;
 
 /**
  * Description of VariableTemplate
@@ -12,27 +13,35 @@ use CodeGenerator\Templates\Interfaces\ValueTemplateInterface;
 class VariableTemplate implements VariableTemplateInterface
 {
     protected string $name = '';
+
     protected ?ValueTemplateInterface $value = null;
 
-    public function getValue(): ?ValueTemplateInterface {
+    public function getValue(): ?ValueTemplateInterface
+    {
         return $this->value;
     }
 
-    public function getName():string {
+    public function getName(): string
+    {
         return $this->name;
     }
 
-    public function setName(string $Name): VariableTemplateInterface {
+    public function setName(string $Name): VariableTemplateInterface
+    {
         $this->name = $Name;
+
         return $this;
     }
 
-    public function setValue(ValueTemplateInterface $Value = null): VariableTemplateInterface {
+    public function setValue(ValueTemplateInterface $Value = null): VariableTemplateInterface
+    {
         $this->value = $Value;
+
         return $this;
     }
 
-    public function __toString(): string {
-        return '$' . $this->getName() . ((string)$this->getValue() ? ' = ' . $this->getValue() : '') . ';';
+    public function __toString(): string
+    {
+        return '$'.$this->getName().((string) $this->getValue() ? ' = '.$this->getValue() : '').';';
     }
 }

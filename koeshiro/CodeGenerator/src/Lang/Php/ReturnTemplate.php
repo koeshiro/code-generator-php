@@ -1,4 +1,5 @@
 <?php
+
 namespace CodeGenerator\Lang\Php;
 
 use CodeGenerator\Templates\Interfaces\ReturnTemplateInterface;
@@ -10,16 +11,17 @@ use CodeGenerator\Templates\Interfaces\ReturnTemplateInterface;
  */
 class ReturnTemplate implements ReturnTemplateInterface
 {
-
-    protected string|\Stringable $value = "";
+    protected string|\Stringable $value = '';
 
     public function __toString()
     {
-        return "return " . ((string) $this->value) . ";";
+        return 'return '.((string) $this->value).';';
     }
 
-    public function setReturn(\Stringable $value): ReturnTemplateInterface {
+    public function setReturn(\Stringable $value): ReturnTemplateInterface
+    {
         $this->value = $value;
+
         return $this;
     }
 }
