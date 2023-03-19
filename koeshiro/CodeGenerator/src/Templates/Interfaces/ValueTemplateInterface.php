@@ -11,5 +11,5 @@ interface ValueTemplateInterface extends \Stringable
 {
     public function setValue(mixed $Value): self;
 
-    public function getValue(): \Stringable|string;
+    public function getValue(): mixed;
 }

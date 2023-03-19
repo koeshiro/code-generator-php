@@ -82,7 +82,7 @@ class ValueTemplate implements ValueTemplateInterface
         return $prepearedValue;
     }
 
-    public function getValue(): \Stringable|string
+    public function getValue(): mixed
     {
         return $this->value;
     }

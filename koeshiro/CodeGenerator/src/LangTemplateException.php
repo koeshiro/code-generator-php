@@ -1,4 +1,5 @@
 <?php
+
 namespace CodeGenerator;
 
 /**
@@ -8,10 +9,9 @@ namespace CodeGenerator;
  */
 class LangTemplateException extends \Exception implements Interfaces\LangTemplateExceptionInterface
 {
-
     protected string $lang = '';
 
-    public function __construct(string $message = "", string $lang = "php", int $code = 0, \Throwable $previous = NULL)
+    public function __construct(string $message = '', string $lang = 'php', int $code = 0, \Throwable $previous = null)
     {
         $this->lang = $lang;
         parent::__construct($message, $code, $previous);

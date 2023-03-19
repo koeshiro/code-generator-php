@@ -29,7 +29,7 @@ class InterfaceTemplate implements InterfaceTemplateInterface
         $propertes = (
             count($this->propertes)
                 ? implode('; ', array_map(function ($o) {
-                return (string) $o;
+                    return (string) $o;
                 }, $this->propertes))
                 : ''
         );
@@ -38,7 +38,7 @@ class InterfaceTemplate implements InterfaceTemplateInterface
                 $arguments = (
                     count($o->getArguments())
                         ? implode("\n", array_map(function ($o) {
-                        return "${(string) $o}, ";
+                            return (string)$o;
                         }, $this->propertes))
                         : ''
                 );
@@ -56,7 +56,7 @@ class InterfaceTemplate implements InterfaceTemplateInterface
                     .'('
                     .$arguments
                     .')'
-                    .strlen($o->getReturnType()) > 0 ? ": ${$o->getReturnType()}" : ''
+                    .strlen($o->getReturnType()) > 0 ? ': '.$o->getReturnType() : ''
                     .'';
             },
             $this->methods

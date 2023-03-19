@@ -33,6 +33,6 @@ class SetTemplate implements SetTemplateInterface
 
     public function __toString()
     {
-        return $this->variable?->getName().' = '.(string) $this->value;
+        return '$'.$this->variable?->getName().' = '.(string) $this->value;
     }
 }
