@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: push
-        uses: mnavarrocarter/packagist-update@v1.0
+        uses: mnavarrocarter/packagist-update@v1.0.0
         with:
           username: "koeshiro"
           api_token: ${{ secrets.packagist_token }}
